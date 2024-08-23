@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!-- displays site properly based on user's device -->
+
+		<link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet" />
+
+		<link rel="stylesheet" href="./css/main.css" />
+
+		<title>Frontend Mentor | Contact form</title>
+	</head>
+	<body>
+		<form class="form">
+			<h2 class="form__title">Contact Us</h2>
+
+			<fieldset class="form__name-area">
+				<label for="first-name" class="form__label">
+					First Name
+					<span class="form__asterisk" aria-label="required">*</span>
+					<span class="form__error">This field is required</span>
+					<input type="text" id="first-name" name="first-name" class="form__text-input" required />
+				</label>
+
+				<label for="last-name" class="form__label">
+					Last Name
+					<span class="form__asterisk" aria-label="required">*</span>
+					<span class="form__error">This field is required</span>
+					<input type="text" id="last-name" name="last-name" class="form__text-input" required />
+				</label>
+			</fieldset>
+
+			<label for="email" class="form__label">
+				Email Address
+				<span class="form__asterisk" aria-label="required">*</span>
+				<span class="form__error form__email-error">Please enter a valid email address</span>
+				<input type="email" id="email" name="email" class="form__text-input" required />
+			</label>
+
+			<fieldset class="form__query-area">
+				<legend class="form__label" required>
+					Query Type
+					<span class="form__asterisk" aria-label="required">*</span>
+				</legend>
+				<label for="query-1" class="form__radio-label">
+					<input type="radio" id="query-1" name="query-type" class="form__radio-input" required />
+					General Enquiry
+				</label>
+				<label for="query-2" class="form__radio-label">
+					<input type="radio" id="query-2" name="query-type" class="form__radio-input" />
+					Support Request
+				</label>
+				<span class="form__error form__query-area--error">Please select a query type</span>
+			</fieldset>
+
+			<label for="message" class="form__label">
+				Message
+				<span class="form__asterisk" aria-label="required">*</span>
+				<textarea name="message" id="message" class="form__message"></textarea>
+				<span class="form__error form__message--error"> This field is required</span>
+			</label>
+
+			<fieldset class="form__checkbox-area">
+				<input type="checkbox" id="checkbox" class="form__checkbox-input" />
+				<label for="checkbox" class="form__checkbox-label">
+					I consent to being contacted by the team
+					<span class="form__asterisk" aria-label="required">*</span>
+				</label>
+				<span class="form__error form__checkbox-area--error">To submit this form, please consent to being contacted</span>
+			</fieldset>
+
+			<button type="submit" class="form__button">Submit</button>
+		</form>
+
+		<dialog class="modal">
+			<h3 class="modal__heading">
+				<img src="./assets/images/icon-success-check.svg" alt="" class="modal__icon" />
+				Message Sent!
+			</h3>
+			<p class="modal__text">Thanks for completing the form. We'll be in touch soon!</p>
+		</dialog>
+	</body>
+</html>

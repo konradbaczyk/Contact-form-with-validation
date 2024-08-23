@@ -1,0 +1,265 @@
+@use "./reset" as *;
+
+:root {
+	--Green-200-lighter: rgb(223, 241, 231);
+	--Green-600-medium: rgb(12, 125, 105);
+	--Green-800-darker: rgb(6, 63, 54);
+	--Red: rgb(215, 60, 60);
+
+	--White: rgb(255, 255, 255);
+	--Grey-500-medium: rgb(135, 163, 166);
+	--Grey-900-darker: rgb(43, 66, 70);
+
+	// - Font size (labels): 16px
+}
+
+body {
+	padding: 4em 0;
+	font-family: "Karla", sans-serif;
+	color: var(--Grey-900-darker);
+	background-color: var(--Green-200-lighter);
+}
+
+.form {
+	max-width: 34rem;
+	height: fit-content;
+	margin: 0 auto;
+	padding: 2em 1.7em;
+	background-color: var(--White);
+	border-radius: 12px;
+
+	&__title {
+		margin-bottom: 0.8em;
+		font-size: 3rem;
+		font-weight: 600;
+	}
+
+	&__label {
+		position: relative;
+		font-size: 1.6rem;
+	}
+
+	&__error {
+		position: absolute;
+		left: 0;
+		bottom: -2em;
+		opacity: 0;
+		font-size: 1.6rem;
+		color: var(--Red);
+	}
+
+	&__query-area {
+		position: relative;
+
+		&--error {
+			bottom: 0.2em;
+		}
+	}
+
+	&__text-input,
+	&__radio-label,
+	&__message {
+		width: 100%;
+		margin-top: 0.6em;
+		margin-bottom: 1.6em;
+		padding: 0.5em 1em;
+		font-size: 1.8rem;
+		border: 1px solid var(--Grey-900-darker);
+		border-radius: 6px;
+
+		&:hover,
+		&:focus,
+		&:active {
+			border: 1px solid var(--Green-600-medium);
+			outline: var(--Green-600-medium);
+		}
+	}
+
+	&__radio-label {
+		display: flex;
+		align-items: center;
+		transition: background-color 0.3s;
+
+		&:hover,
+		&:focus,
+		&:active {
+			cursor: pointer;
+			background-color: var(--Green-200-lighter);
+		}
+	}
+
+	&__radio-input {
+		appearance: none;
+		height: 20px;
+		width: 20px;
+		margin-right: 0.4em;
+		border: 1px solid var(--Grey-500-medium);
+		border-radius: 50%;
+		transition: border 0.3s;
+
+		&:hover,
+		&:focus,
+		&:active,
+		&:checked {
+			cursor: pointer;
+			border: 1px solid var(--Green-600-medium);
+		}
+
+		&:checked {
+			cursor: pointer;
+			background-image: url("../assets/images/icon-radio-selected.svg");
+			background-position: -1px;
+			border: 1px solid var(--Green-600-medium);
+		}
+	}
+
+	&__message {
+		min-width: 100%;
+		max-width: 100%;
+		min-height: 20rem;
+
+		&--error {
+			bottom: 0.2em;
+		}
+	}
+
+	&__checkbox-area {
+		position: relative;
+		margin-top: 1em;
+		margin-bottom: 5em;
+		display: flex;
+		align-items: center;
+
+		&--error {
+			bottom: -2.5em;
+		}
+	}
+
+	&__checkbox-input {
+		appearance: none;
+		width: 2rem;
+		height: 2rem;
+		margin-right: 1em;
+		display: grid;
+		place-content: center;
+		border: 1px solid var(--Green-600-medium);
+
+		&:hover,
+		&:focus,
+		&:active {
+			outline: 2px solid var(--Green-600-medium);
+		}
+
+		&::before {
+			content: "";
+			width: 2rem;
+			height: 2rem;
+			transform: scale(0);
+			background-image: url("../assets/images/icon-checkbox-check.svg");
+			background-size: cover;
+			background-repeat: no-repeat;
+			transition: transform 0.3s;
+		}
+
+		&:checked::before {
+			transform: scale(1);
+		}
+	}
+
+	&__checkbox-label {
+		font-size: 1.6rem;
+	}
+
+	&__asterisk {
+		color: var(--Green-600-medium);
+	}
+
+	&__button {
+		width: 100%;
+		padding: 1em;
+		font-size: 1.6rem;
+		color: var(--White);
+		background-color: var(--Green-600-medium);
+		border-radius: 6px;
+		transition: background-color 0.3s;
+
+		&:hover,
+		&:focus,
+		&:active {
+			background-color: var(--Green-800-darker);
+		}
+	}
+}
+
+.modal {
+	position: fixed;
+	top: 2%;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 60%;
+	max-width: 45rem;
+	padding: 1em;
+	font-size: 1.6rem;
+	color: var(--White);
+	background-color: var(--Green-800-darker);
+	border-radius: 8px;
+
+	&__heading {
+		margin-bottom: 0.8em;
+		display: flex;
+		align-items: center;
+	}
+
+	&__icon {
+		margin-right: 0.4em;
+	}
+}
+
+// COMPONENTS
+.error-active {
+	opacity: 1;
+	border-color: var(--Red);
+}
+
+@media (min-width: 996px) {
+	.form {
+		max-width: 64rem;
+
+		&__error {
+			bottom: 0;
+		}
+
+		&__email-error {
+			bottom: -2em;
+		}
+
+		&__query-area {
+			&--error {
+				bottom: 0.4em;
+			}
+		}
+
+		&__message {
+			&--error {
+				bottom: 0.4em;
+			}
+		}
+
+		&__checkbox-area {
+			&--error {
+				bottom: -1.8em;
+			}
+		}
+
+		&__name-area {
+			display: flex;
+			gap: 2em;
+			justify-content: space-between;
+		}
+
+		&__query-area {
+			display: flex;
+			gap: 2em;
+		}
+	}
+}
