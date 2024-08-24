@@ -147,6 +147,7 @@ body {
 		&:hover,
 		&:focus,
 		&:active {
+			cursor: pointer;
 			outline: 2px solid var(--Green-600-medium);
 		}
 
@@ -168,6 +169,7 @@ body {
 
 	&__checkbox-label {
 		font-size: 1.6rem;
+		cursor: pointer;
 	}
 
 	&__asterisk {
@@ -192,6 +194,7 @@ body {
 }
 
 .modal {
+	display: none;
 	position: fixed;
 	top: 2%;
 	left: 50%;
@@ -219,6 +222,10 @@ body {
 .error-active {
 	opacity: 1;
 	border-color: var(--Red);
+}
+
+.display-block {
+	display: block;
 }
 
 @media (min-width: 996px) {
